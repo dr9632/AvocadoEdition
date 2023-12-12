@@ -68,7 +68,7 @@ include_once('./admin.head.php');
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
-$colspan = 8;
+$colspan = 9;
 
 
 /** 세력 정보 **/
@@ -177,6 +177,7 @@ if($profile['ad_use_rank']) {
 		<col style="width: 120px;" />
 <? } ?>
 		<col style="width: 80px;" />
+		<col style="width: 80px;" />
 		<col style="width: 100px;" />
 	</colgroup>
 	<thead>
@@ -198,6 +199,7 @@ if($profile['ad_use_rank']) {
 <? if($config['cf_class_title']) { ?>
 		<th><?=$config['cf_class_title']?></th>
 <? } ?>
+		<th>현재위치</th>
 		<th>상태</th>
 		<th>관리</th>
 	</tr>
@@ -256,6 +258,14 @@ if($profile['ad_use_rank']) {
 			</select>
 		</td>
 <? } ?>
+		<td>
+			<select name="ch_curr_stat[<?=$i?>]" class="frm_input">
+				<option value="상태없음">상태없음</option>
+				<option value="휴식" <?=$row['ch_curr_stat'] == "휴식" ? "selected" : "" ?>>휴식</option>
+				<option value="대기" <?=$row['ch_curr_stat'] == "대기" ? "selected" : "" ?>>대기</option>
+				<option value="임무" <?=$row['ch_curr_stat'] == "임무" ? "selected" : "" ?>>임무</option>
+			</select>
+		</td>
 		<td>
 			<select name="ch_state[<?=$i?>]" class="frm_input">
 				<option value="수정중">수정중</option>
