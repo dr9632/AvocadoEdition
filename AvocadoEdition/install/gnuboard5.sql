@@ -942,6 +942,8 @@ CREATE TABLE IF NOT EXISTS `avo_character` (
   `ma_id` int(11) NOT NULL DEFAULT '0',
   `ch_order` int(11) NOT NULL DEFAULT '0',
   `ch_curr_stat` varchar(255) NOT NULL DEFAULT '휴식',
+  `ch_random_ability` int(11) NOT NULL DEFAULT '0',
+  `ch_update_date` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`ch_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------
