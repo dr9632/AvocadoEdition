@@ -36,6 +36,15 @@ $sql_search .= " AND ((sh_side LIKE '%||".$character['ch_side']."||%' AND sh_use
 $sql_search .= " AND ((sh_class LIKE '%||".$character['ch_class']."||%' AND sh_use_class = '1') OR sh_use_class = '0') ";
 
 
+// -- 캐릭터 현재 위치 정보 가져오기
+$curr_stat = "";
+$stat_res = sql_query("select * from {$g5['character_table']} where mb_id = '{$member['mb_id']}' and ch_state != '삭제'");
+// 대표캐릭터 상태 정보만 저장
+for($i=0; $row = sql_fetch_array($stat_res); $i++) { 
+	if($member['ch_id'] == $row['ch_id'])
+		$curr_stat = $row['ch_curr_stat'];
+}
+
 // ---  페이징 처리
 
 $sql = " select count(*) as cnt {$sql_common} {$sql_search} {$sql_order} ";

@@ -4,6 +4,8 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_CSS_URL.'/shop.css">', 0);
 ?>
 
 <div id="shop_page">
+	<!-- 임무 상태가 아닐 때에만 상점 페이지 노출된다 -->
+	<? if($curr_stat!=="임무"){ ?>
 	<div id="shop_npc">
 		<img src="<?=G5_IMG_URL?>/shop/npc.png" />
 	</div>
@@ -42,7 +44,9 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_CSS_URL.'/shop.css">', 0);
 			</div>
 		</div>
 	</div>
-
+	<? } else{ ?>
+		안전구역 외에서 접근할 수 없습니다.
+	<? } ?>
 </div>
 
 
